@@ -4,6 +4,12 @@
 
 @ Hanon
 
+You can ssh into the cluster using the following command:
+
+```
+ssh <username>@login.rc.fas.harvard.edu
+```
+
 ## Storage Locations
 
 Temporary Scratch Storage (Will get deleted). We have 50TB
