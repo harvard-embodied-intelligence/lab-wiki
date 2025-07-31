@@ -27,6 +27,15 @@ Larger Persistent Memory Storage (30TB of storage)
 
 ## Compute Resources
 
-There are several allocation GPU queues (kempner, kempner_h100, kempner_requeue). 
+There are several allocation GPU partitions (kempner, kempner_h100, kempner_requeue, gpu_requeue). 
+
+More details can be found [here](https://handbook.eng.kempnerinstitute.harvard.edu/intro.html)
+
+- The kempner_h100 partition allows high priority allocations of H100s
+- The kempner partition allow allocations of A100s
+- The kempner_requeue partition allows for lower priority allocation of both H100s and A100s. This is the recommended partition to you
+- The gpu_requeue partition allows for lower priority allocations of SEAS GPUs. This partition has less resources.
+
+For larger cluster allocations
 
 
