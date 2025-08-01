@@ -2,7 +2,7 @@
 
 ## Starting Computing Environment
 
-@ Hanon
+@ Haonan
 
 You can ssh into the cluster using the following command:
 
@@ -44,4 +44,18 @@ More details can be found [here](https://handbook.eng.kempnerinstitute.harvard.e
 
 For larger cluster allocations
 
+## Conda Configuration for Cluster
+
+When using conda on the cluster, you may need to configure channels for better package resolution:
+
+```bash
+# Remove nodefaults from the channel list
+conda config --remove channels nodefaults
+
+# Switch channel priority to flexible (so conda can mix channels)
+conda config --set channel_priority flexible
+
+# Add defaults channel back
+conda config --add channels defaults
+```
 
