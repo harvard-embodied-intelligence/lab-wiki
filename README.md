@@ -2,13 +2,16 @@
 
 ## Starting Computing Environment
 
-@ Haonan
-
 You can ssh into the cluster using the following command:
 
 ```
 ssh <username>@login.rc.fas.harvard.edu
 ```
+
+To request a FASRC account, please fill out the form [here](https://portal.rc.fas.harvard.edu/request/account/new). 
+
+To get access to the Kempner cluster, please additionally fill out the google doc [here](https://forms.gle/drDyBweFshM697vf6).
+
 
 ## Storage Locations
 
