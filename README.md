@@ -65,7 +65,7 @@ conda config --add channels defaults
 ### All lab lunch
 Every week at Wednesday 12:30pm-14:00pm, Kempner conference room (SEC 6.242)
 
-### All lab reading group 
+### All lab ML reading group 
 Every week on Thursdays 12:30pm - 14:00pm, Kempner conference room (SEC 6.242)
 
 ### Diffusion special reading group 
