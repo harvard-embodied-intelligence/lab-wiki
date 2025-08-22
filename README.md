@@ -61,4 +61,13 @@ conda config --set channel_priority flexible
 # Add defaults channel back
 conda config --add channels defaults
 ```
+## Kempner-Wide Meetings
+### All lab lunch
+Every week at Wednesday 12:30pm-14:00pm, Kempner conference room (SEC 6.242)
+
+### All lab reading group 
+Every week on Thursdays 12:30pm - 14:00pm, Kempner conference room (SEC 6.242)
+
+### Diffusion special reading group 
+TBD (contact David Alvarez-Melis dam@seas.harvard.edu)
 
