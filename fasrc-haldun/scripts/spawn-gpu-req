@@ -1,0 +1,16 @@
+#!/bin/zsh -l
+#SBATCH -J spawn-multi
+#SBATCH --gres=gpu:{{NUM_GPUS}}
+#SBATCH -c {{NUM_CPUS}}
+#SBATCH -t 0-23:59
+#SBATCH -p gpu_requeue
+#SBATCH --mem=16000
+#SBATCH -o /n/home04/hbalim/outputs/%j.out
+#SBATCH -e /n/home04/hbalim/outputs/%j.err
+
+lmods
+#mamba activate d4rl
+mamba activate fetch
+export XDG_RUNTIME_DIR=
+
+bash "{{COMMAND_SCRIPT}}"

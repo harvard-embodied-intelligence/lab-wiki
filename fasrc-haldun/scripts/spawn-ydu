@@ -1,0 +1,20 @@
+#!/bin/zsh -l
+#SBATCH -J spawn-multi
+#SBATCH --gres=gpu:{{NUM_GPUS}}
+#SBATCH -c {{NUM_CPUS}}
+#SBATCH -t 2-11:59
+#SBATCH -p kempner_h100
+#SBATCH --mem=64000
+#SBATCH -o /n/home04/hbalim/outputs/%j.out
+#SBATCH -e /n/home04/hbalim/outputs/%j.err
+#SBATCH --account=kempner_ydu_lab
+
+lmods
+mamba activate d4rl
+#vact
+#mamba activate dsrl
+#mamba activate fetch
+export XDG_RUNTIME_DIR=
+sleep 45
+
+bash "{{COMMAND_SCRIPT}}"

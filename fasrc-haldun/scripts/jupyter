@@ -1,0 +1,20 @@
+#!/bin/zsh -l
+#SBATCH -J jupyter 	    # Job name
+#SBATCH -c 8                # Number of cores (-c)
+#SBATCH -t 0-11:59          # Runtime in D-HH:MM, minimum of 10 minutes
+#SBATCH -p test   # Partition to submit to
+#SBATCH --mem=12000           # Memory pool for all cores (see also --mem-per-cpu)
+#SBATCH -o /n/home04/hbalim/outputs/%j.out  # File to which STDOUT will be written, %j inserts jobid
+#SBATCH -e /n/home04/hbalim/outputs/%j.err  # File to which STDERR will be written, %j inserts jobid
+
+rm ~/jnbinfo
+lmods-cpu
+vact
+#mamba activate d4rl
+#mamba activate fetch
+export XDG_RUNTIME_DIR=
+JNB_IP_REMOTE="$(hostname -i)"
+current_datetime=$(date +"%Y-%m-%d %H:%M:%S")
+echo "$current_datetime" > ~/jnbinfo
+echo "Remote IP:$JNB_IP_REMOTE" >> ~/jnbinfo
+jupyter notebook --no-browser --ip "$JNB_IP_REMOTE" ~/wdir >> ~/jnbinfo 2>&1

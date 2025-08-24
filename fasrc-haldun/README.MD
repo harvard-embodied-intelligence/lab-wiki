@@ -1,0 +1,24 @@
+# My FASRC Scripts and Aliases
+I prefer using `zsh` as my shell, so I have a `.zshrc` file instead of a `.bashrc` file. The most convenient way to use this setup is to open a second zsh shell after logging in to FASRC automatically. This can be done by copying contents in my `.bash_profile`. My `.zshrc` file containts standard content except the last line which sources my custom aliases and scripts from a separate file `.zprofile`. Although whether to use zsh or bash is a matter of personal preference, I find zsh to be more user-friendly and feature-rich, especially with its' tab completion and plugin support. My favourite plugin is `autojump`, which allows me to quickly navigate to frequently used directories.
+
+In my `.zprofile` file, I have defined several aliases and functions to streamline my workflow. Most of the aliases are self-explanatory, and shortcuts for frequently used FASRC commands. The functions are designed to automate common tasks, such as submitting and monitoring tasks, and starting Jupyter Notebook servers.
+
+I have several aliases that calls scripts that I have written to perform specific tasks. These scripts are stored in the `~/scripts` directory. These scripts are customized for zsh and may not work in bash without modification. However, they can be easily adapted to bash if needed with minor changes, which I believe can be done with help of an LLM like ChatGPT. Finally, the scripts expect the username to be mine, and also uses my file directory setup so you may need to modify them to fit your own setup.
+
+The scripts includes the following functions called by aliases:
+- `status [idx]`: A script that checks the status of a job submitted by the user with the given index `idx` in the FASRC job queue. It returns the last few lines of the job's output file, which can be useful for monitoring the progress of long-running jobs.
+    Example usage: `status 0` to check the status of the first job in the queue.
+- `status-all`: A script that retrieves the output file of all jobs in the FASRC job queue. It returns the last few lines of each job's output file, which can be useful for monitoring the progress of multiple jobs at once.
+- `count-jobs`: A script that counts the number of jobs currently in the FASRC job queue for the user. It returns the total number of jobs, which can be useful for keeping track of how many jobs are running or waiting to be executed.
+- `spawn [template] {num} 'cmd1' 'cmd2'`: Gets a template slurm script and spawns a job with `{num}` GPUs running `cmd1` and `cmd2`. If `{num}` is not provided, it defaults to 1. I will describe the template slurm script below.
+    Example usage 1: `spawn template 2 'python train.py' 'python test.py'` to spawn a job with 2 GPUs running `train.py` and `test.py`.
+    Example usage 2: `spawn template 'python train.py'` to spawn a job with 1 GPU running `train.py`.
+    Example usage 3: `spawn template 4 'python train.py'` to spawn a job with 4 GPUs and running `train.py` with each of them. 
+    The final script is especially useful for GPU-Test queue which allows 2 tasks but 8 GPUs per user. By using this script, I can fully utilize the available GPUs by running multiple tasks in parallel.
+    Note: if you check my aliases you can see I have multiple template files and assign a new alias for each of them. This is because I have different templates for different queues. So in practice, I would use `spawn-gpu-test 4 'python train.py'` to spawn a job in the GPU-Test queue.
+- `jnb`: A script that starts a Jupyter Notebook server on a FASRC Test queue using configuration in `scripts/jupyter` and create `jnbinfo` file which contains the URL to access the notebook. 
+- `jnb-gpu`: Similar to `jnb` but starts a Jupyter Notebook server on a FASRC GPU-requeue using configuration in `scripts/jupyter-gpu`.
+- `jnbex`: A script that extracts the URL from the `jnbinfo` file and also retrieves ssh tunnel command to access the Jupyter Notebook server from the local machine. You can run `jnbex` on login queue as its just a quick command to get the URL and ssh tunnel command. Then copy-paste the ssh tunnel command to your local terminal to create the tunnel, and open the URL in your web browser to access the Jupyter Notebook server.
+  Bonus: if you are using `iterm2` as your terminal emulator, you can customize your shortcuts to open a new tab with the ssh tunnel command if you click the ssh tunnel command while holding the `command` key.
+
+Overall, this setup is designed to make my workflow more efficient and productive. I hope you find it useful and feel free to customize it to fit your own needs.
