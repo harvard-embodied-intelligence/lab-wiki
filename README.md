@@ -71,3 +71,29 @@ Every week on Thursdays 12:30pm - 14:00pm, Kempner conference room (SEC 6.242)
 ### Diffusion special reading group 
 TBD (contact David Alvarez-Melis dam@seas.harvard.edu)
 
+## Workstations
+Two workstations are set up in 4.430 and 4.432, each with two RTX5090.
+### Connect to workstations with SSH
+```bash
+ssh [user]@10.250.238.108
+ssh [user]@10.250.91.122
+```
+Please check Slack for details of usernames and passwords.
+### Connect to workstations through Remote Desktop
+If you want to use the remote desktop, please install AnyDesk first. Then you need to add your AnyDesk ID to the "Global Setting -> Security -> Access Control List" to enable remote desktop.
+### VNC support
+The workstation `10.250.238.108` has VNC support. If you want to start a virtual desktop, follow the instructions below:
+1. On the workstation, run the following commands:
+```bash
+sudo vncserver
+```
+It will start a remote desktop with ID `:[id]`. Generally, the VNC will listen on port `590[id]`. You can use `sudo vncserver -list` to check detailed information.
+
+2. On your personal computer, run:
+```bash
+ssh [user]@10.250.238.108 -L 5900:localhost:590[id]
+```
+This command will build a tunnel from your `5900` port to the workstation's `590[id]` port. 
+Then you can use an arbitrary VNC viewer (such as RealVNC or TigerVNC) and connect to `localhost::5900` to access the virtual desktop.
+
+
