@@ -72,6 +72,9 @@ Every week on Thursdays 12:30pm - 14:00pm, Kempner conference room (SEC 6.242)
 TBD (contact David Alvarez-Melis dam@seas.harvard.edu)
 
 ## Workstations
+⚠️ DEPRECATED: consider [workstation.md](workstation.md) for more details.
+
+
 Two workstations are set up in 4.430 and 4.432, each with two RTX5090.
 ### Connect to workstations with SSH
 ```bash
