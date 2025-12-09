@@ -96,10 +96,9 @@ It will start a remote desktop with ID `:[id]`. Generally, the VNC will listen o
 ```bash
 ssh [user]@10.250.238.108 -L 5900:localhost:590[id]
 
-### Tutorial on Simulations
-Please refer to [Tactile Simulation Tutorial](Tactile Simulation Tutorial.md).
 ```
 This command will build a tunnel from your `5900` port to the workstation's `590[id]` port. 
 Then you can use an arbitrary VNC viewer (such as RealVNC or TigerVNC) and connect to `localhost::5900` to access the virtual desktop.
 
-
+### Tutorial on Simulations
+Please refer to [Tactile Simulation Tutorial](Tactile Simulation Tutorial.md).
