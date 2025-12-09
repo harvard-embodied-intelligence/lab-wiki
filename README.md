@@ -101,4 +101,4 @@ This command will build a tunnel from your `5900` port to the workstation's `590
 Then you can use an arbitrary VNC viewer (such as RealVNC or TigerVNC) and connect to `localhost::5900` to access the virtual desktop.
 
 ### Tutorial on Simulations
-Please refer to [Tactile Simulation Tutorial](Tactile Simulation Tutorial.md).
+Please refer to Tactile Simulation Tutorial.md
