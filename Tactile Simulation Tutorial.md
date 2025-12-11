@@ -167,7 +167,7 @@ To install IsaacGym on 50s GPUs, an alternative is to build PyTorch from source.
    TORCH_CUDA_ARCH_LIST="3.5 5.2 6.0 6.1 7.0+PTX 8.0 12.0 12.0+PTX" TORCH_NVCC_FLAGS="-Xfatbin -compress-all" \
    ```
 
-4. Ensure the versions of your gcc and g++ are correct. `13.3` is a test to work well.
+4. Ensure the versions of your gcc and g++ are correct. `13.3` is a test to ensure proper functioning.
 
 5. Run the following:
 
@@ -175,11 +175,58 @@ To install IsaacGym on 50s GPUs, an alternative is to build PyTorch from source.
    python setup.py develop
    ```
 
-   If everything works well, you will see a `dist` folder under the `pytorch` folder, with a `.whl` file in it. You can then install by running:
+   If everything works correctly, you will see a `dist` folder under the `pytorch` folder, containing a `.whl` file. You can then install by running:
    ```bash
    pip install torch-2.4.1a0+gitxx-cp38-cp38-linux_xxx.whl
    ```
 
    Then you can successfully install the correct Torch version for IsaacGym and TacSL.
 
-​	
+## Some Troubleshooting in Running IsaacGym
+1. Error when initializing camera with `enable_tensors=True`
+```bash
+[Error] [carb.gym.plugin] cudaExternamMemoryGetMappedBuffer failed on rgbImage buffer with error 101
+[Error] [carb.gym.plugin] cudaExternamMemoryGetMappedBuffer failed on depthImage buffer with error 101
+[Error] [carb.gym.plugin] cudaExternamMemoryGetMappedBuffer failed on segmentationImage buffer with error 101
+[Error] [carb.gym.plugin] cudaExternamMemoryGetMappedBuffer failed on optical flow buffer with error 101
+```
+Usually, the issue is related to Vulkan and the GPU. A general solution can be found [here](https://forums.developer.nvidia.com/t/create-camera-sensor-fail-on-buffer/186529). However, this solution requires a physical monitor to be connected, if you're working on a remote server with no X displays, the following steps may be helpful:
+```bash
+# Install Vulkan
+sudo apt-get install cmake git gcc g++ mesa-* libwayland-dev libxrandr-dev
+sudo apt-get install libvulkan1 mesa-vulkan-drivers vulkan-utils
+
+# Install VirtualGL
+sudo apt install virtualgl
+
+# Test Vulkan with headless setting
+DISPLAY="" vulkaninfo
+
+# Create headless X configuration (Requires sudo)
+nvidia-xconfig --query-gpu-info
+sudo nvidia-xconfig -a --allow-empty-initial-configuration --use-display-device="None" --virtual=1920x1080
+sudo systemctl restart gdm # Here, change gdm to your display manager (such as lightgdm)
+# If you do not have a display manager, run this command:
+# sudo Xorg :0 &
+
+# Validate creation
+sudo DISPLAY=:0 xhost +local:
+```
+If `sudo DISPLAY=:0 xhost +local:` is successful, then you can simply follow [this solution](https://forums.developer.nvidia.com/t/create-camera-sensor-fail-on-buffer/186529). Else, if `sudo DISPLAY=:0 xhost +local:` returns the error like this:
+```bash
+Authorization required, but no authorization protocol specified
+xhost:  unable to open display ":0"
+```
+That means you need to find the authentication keys (the `.Xauthority` file) as follows:
+```bash
+ps aux | grep Xorg
+# Look for a long line ending with something like: -auth /run/user/121/gdm/Xauthority or -auth /var/run/lightdm/root/:0
+# Usually by USER gdm or lightgdm
+sudo XAUTHORITY=[YOUR_PATH] DISPLAY=:0 xhost +local: # Replace [YOUR_PATH] with the path you find above
+# An example: sudo XAUTHORITY=/run/user/121/gdm/Xauthority DISPLAY=:0 xhost +local:
+
+# Then try again
+vglrun vulkaninfo
+sudo DISPLAY=:0 xhost +local:
+```
+
