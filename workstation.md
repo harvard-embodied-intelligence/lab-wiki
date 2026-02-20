@@ -29,7 +29,7 @@ When you’re off-campus or not on Harvard Secure WiFi, use Tailscale for secure
 1. Install Tailscale
    * Download [Tailscale]((https://tailscale.com/)) for your platform
 3. Join the Lab Tailnet
-   * Ask Chaoqi Liu to add your account (your email address) to the lab’s tailnet.
+   * Ask Heng/Sarah/Haonan/Chaoqi to add your account (your email address) to the lab’s tailnet.
 4. Log In & Switch to Lab Tailnet
    * Open Tailscale on your computer, log in, and select the lab tailnet (not your personal one).
 5. SSH into a Lab Workstation
