@@ -12,6 +12,13 @@ To request a FASRC account, please fill out the form [here](https://portal.rc.fa
 
 To get access to the Kempner cluster, please additionally fill out the google doc [here](https://forms.gle/drDyBweFshM697vf6).
 
+## Applying Harvard Key with your edu email
+
+1. get a HUID key from your edu email, e.g., [here](https://libraries.mit.edu/borrow/non-mit-access/harvard/) 
+
+2. claim the HarvardKey following [here](https://harvard.service-now.com/ithelp?id=kb_article&sys_id=248b8a4c1b271018351ceb9bbc4bcb7b) and [here](https://harvard.service-now.com/ithelp?id=kb_article&sys_id=518d43916fc1aec0a3a79b9eae3ee40f)
+
+3. register&login with your edu email.
 
 ## Storage Locations
 
