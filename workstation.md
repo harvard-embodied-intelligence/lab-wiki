@@ -6,7 +6,7 @@ Two high-performance workstations are available for lab members:
 | Location | Hostname / IP | GPU Configuration |
 |-----------|----------------|-------------------|
 | 4.430     | `10.250.238.108` | 2 × RTX 5090 |
-| 4.432     | `10.250.91.122`  | 2 × RTX 5090 |
+| 4.432     | `10.251.13.215`  | 2 × RTX 5090 |
 
 ---
 
