@@ -16,7 +16,7 @@ If you are on campus and connected to Harvard Secure WiFi,
 you can directly SSH into the workstations using:
 ```
 ssh [username]@10.250.238.108
-ssh [username]@10.250.91.122
+ssh [username]@10.251.13.215
 ```
 📍 Note: Usernames and passwords are shared privately in the lab Slack channel. You must be on Harvard Secure WiFi for these IPs to work.
 
