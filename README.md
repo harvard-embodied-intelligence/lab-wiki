@@ -109,3 +109,7 @@ Then you can use an arbitrary VNC viewer (such as RealVNC or TigerVNC) and conne
 
 ### Tutorial on Simulations
 Please refer to Tactile Simulation Tutorial.md
+
+## Robots
+
+- [Robot Instructions](robot-instructions.md)
