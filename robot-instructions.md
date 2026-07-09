@@ -17,21 +17,21 @@ Before enabling teleoperation:
 
 | Item | Address |
 | --- | --- |
-| Robot workstation / VNC host | `10.250.91.122` |
+| Robot workstation / VNC host | `10.250.180.205` |
 | Right Franka arm | `172.16.0.2` |
 | Left Franka arm | `172.16.1.2` |
-| iPhone teleop web client | `10.250.91.122:5000` |
+| iPhone teleop web client | `10.250.180.205:5000` |
 
 Credentials are shared privately in the lab Slack / private credential notes. Do not commit plaintext passwords to this repository.
 
 ## 1. Connect to the Workstation with VNC
 
-Connect to `10.250.91.122` over VNC.
+Connect to `10.250.180.205` over VNC.
 
 On macOS, you can use the built-in Screen Sharing app:
 
 ```text
-Host: 10.250.91.122:5906
+Host: 10.250.180.205:5907
 ```
 
 ## 2. Unlock the Robot and Activate FCI
@@ -70,7 +70,7 @@ Install [XR Browser](https://apps.apple.com/us/app/xr-browser/id1588029989) on t
 SSH into the workstation as the robot operator account:
 
 ```bash
-ssh xshan@10.250.91.122
+ssh xshan@10.250.180.205
 ```
 
 Use the private credential notes for the SSH password.
@@ -146,7 +146,7 @@ python main_hydra.py experiment=franka_iphone_teleop
 On the iPhone, connect to the teleop web client in XR Browser:
 
 ```text
-10.250.91.122:5000
+10.250.180.205:5000
 ```
 
 The teleoperation flow follows the TidyBot2 client instructions: [Connecting the Client](https://tidybot2.github.io/docs/usage/#connecting-the-client).
