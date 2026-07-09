@@ -149,7 +149,7 @@ On the iPhone, connect to the teleop web client in XR Browser:
 10.250.180.205:5000
 ```
 
-The teleoperation flow follows the TidyBot2 client instructions: [Connecting the Client](https://tidybot2.github.io/docs/usage/#connecting-the-client).
+The teleoperation flow follows the TidyBot2 client instructions: [Connecting the Client](https://tidybot2.github.io/docs/usage/#connecting-the-client). For a related mobile manipulation setup and iPhone teleoperation interface, see [Simple Mobile](https://haoyu-x.github.io/simple-mobile/).
 
 1. Align the phone with the robot.
 2. Press **Start episode**.
